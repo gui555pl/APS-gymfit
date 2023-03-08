@@ -19,33 +19,26 @@ initializeApp({
 class SubsistemaComunicacaoAPILoginExterno
   implements ISubsistemaComunicacaoAPILoginExterno
 {
-  consultaExterna(
+  async consultaExterna(
     email: string,
     password: string,
     nome: string,
     tipo: string
-  ): Conta | void {
-    getAuth()
-      .createUser({
-        email,
-        emailVerified: false,
-        password,
-        displayName: nome,
-        disabled: false
-      })
-      .then(userRecord => {
-        // See the UserRecord reference doc for the contents of userRecord.
-        console.log("Successfully created new user:", userRecord.uid);
-        return new Conta(
-          userRecord.displayName || "",
-          tipo,
-          parseInt(userRecord.uid),
-          userRecord.email || ""
-        );
-      })
-      .catch(error => {
-        console.log("Error creating new user:", error);
-      });
+  ): Promise<Conta | void> {
+    const userRecord = await getAuth().createUser({
+      email,
+      emailVerified: false,
+      password,
+      displayName: nome,
+      disabled: false
+    });
+
+    return new Conta(
+      userRecord.displayName || "",
+      tipo,
+      parseInt(userRecord.uid),
+      userRecord.email || ""
+    );
   }
 }
 

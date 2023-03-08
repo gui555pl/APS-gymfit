@@ -6,7 +6,7 @@ interface ISubsistemaComunicacaoAPILoginExterno {
     password: string,
     nome: string,
     tipo: string
-  ): Conta | void;
+  ): Promise<Conta | void>;
 }
 
 export default ISubsistemaComunicacaoAPILoginExterno;

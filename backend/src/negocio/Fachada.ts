@@ -44,13 +44,13 @@ class Fachada {
     return this.controladorLogin.registrarSessao(conta);
   }
 
-  public criarConta(
+  public async criarConta(
     email: string,
     password: string,
     nome: string,
     tipo: string
-  ): Conta | void {
-    return this.controladorContas.criarConta(email, password, nome, tipo);
+  ): Promise<Conta | void> {
+    return await this.controladorContas.criarConta(email, password, nome, tipo);
   }
 
   public cadastrarTreino(

@@ -12,14 +12,14 @@ class ControladorContas {
     this.Contas = Contas;
   }
 
-  public criarConta(
+  public async criarConta(
     email: string,
     password: string,
     nome: string,
     tipo: string
-  ): Conta | void {
+  ): Promise<Conta | void> {
     const subsistema = new SubsistemaComunicacaoAPILoginExterno();
-    const conta = subsistema.consultaExterna(email, password, nome, tipo);
+    const conta = await subsistema.consultaExterna(email, password, nome, tipo);
     if (conta) {
       this.Contas.inserirConta(
         conta.getNome(),

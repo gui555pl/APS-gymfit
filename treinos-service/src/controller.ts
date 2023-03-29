@@ -12,7 +12,7 @@ export async function listarTreino (req: Request, res: Response): Promise<void> 
 
 export async function cadastrarTreino (req: Request, res: Response): Promise<void> {
   const { tipo, idConta, exercicios } = req.body;
-  const { data } = await axios.post("http://localhost:3334/conta/validar", { idConta });
+  const { data } = await axios.post("http://contasweb:3334/conta/validar", { idConta });
   const { result: contaValida } = data
   if (!contaValida) {
     res.status(400).json({ message: "Conta inválida" });

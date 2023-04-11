@@ -2,7 +2,7 @@
   v-container
     v-row(justify="center")
       v-col(cols="auto")
-        v-btn(@click="$router.push('/presenca')") Presença
+        v-btn(@click="$router.push(`/editar-conta/${2}`)") Editar conta
       v-col(cols="auto")
         v-btn(@click="$router.push('/treinos')") Treinos
 </template>

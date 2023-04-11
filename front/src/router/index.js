@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Presenca from '../views/Presenca'
 import Treinos from '../views/Treinos'
+import EditarConta from '../views/EditarConta'
 
 Vue.use(VueRouter)
 
@@ -13,9 +13,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/presenca',
-    name: 'presenca',
-    component: Presenca
+    path: '/editar-conta/:id',
+    name: 'editar-conta',
+    component: EditarConta
   },
   {
     path: '/treinos',

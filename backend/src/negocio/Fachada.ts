@@ -53,12 +53,8 @@ class Fachada {
     return await this.controladorContas.criarConta(email, password, nome, tipo);
   }
 
-  public cadastrarTreino(
-    tipo: string,
-    exercicios: string[],
-    idConta: number
-  ): Treino {
-    return this.controladorTreinos.cadastrarTreino(tipo, exercicios, idConta);
+  public cadastrarTreino(treino: Treino): Treino {
+    return this.controladorTreinos.cadastrarTreino(treino);
   }
 
   public consultarTreino(idConta: number): Treino | undefined {

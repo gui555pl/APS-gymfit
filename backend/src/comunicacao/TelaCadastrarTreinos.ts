@@ -17,7 +17,9 @@ class TelaCadastrarTreinos {
     const exercicios = req.body.exercicios;
     const idConta = req.body.idConta;
 
-    const treino = this.fachada.cadastrarTreino(tipo, exercicios, idConta);
+    const treinoToCreate = new Treino(tipo, exercicios, idConta);
+
+    const treino = this.fachada.cadastrarTreino(treinoToCreate);
 
     res.status(200).send(treino);
     return treino;

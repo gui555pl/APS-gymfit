@@ -11,12 +11,8 @@ class ControladorTreinos {
     this.Treinos = Treinos;
   }
 
-  public cadastrarTreino(
-    tipo: string,
-    exercicios: string[],
-    idConta: number
-  ): Treino {
-    return this.Treinos.cadastrarTreino(tipo, exercicios, idConta);
+  public cadastrarTreino(treino: Treino): Treino {
+    return this.Treinos.cadastrarTreino(treino);
   }
 
   public consultarTreino(idConta: number): Treino | undefined {

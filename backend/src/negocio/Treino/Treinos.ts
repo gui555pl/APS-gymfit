@@ -13,13 +13,8 @@ class Treinos {
     this.repositorioTreinos = repositorioTreinos;
   }
 
-  public cadastrarTreino(
-    tipo: string,
-    exercicios: string[],
-    idConta: number
-  ): Treino {
-    const treino = this.repositorioTreinos.inserir(tipo, exercicios, idConta);
-    return treino;
+  public cadastrarTreino(treino: Treino): Treino {
+    return this.repositorioTreinos.inserir(treino);
   }
 
   public consultarTreino(idConta: number): Treino | undefined {

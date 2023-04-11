@@ -14,8 +14,7 @@ class RepositorioTreinos implements IRepositorioTreinos {
     this.treinos = TreinosDefault;
   }
 
-  inserir(tipo: string, exercicios: string[], idConta: number): Treino {
-    const treino = new Treino(tipo, exercicios, idConta);
+  inserir(treino: Treino): Treino {
     this.treinos.push(treino);
     return treino;
   }

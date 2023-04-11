@@ -1,4 +1,4 @@
-import Conta from "../negocio/Conta/Conta";
+import ContaFirebase from "../negocio/ContaFirebase/ContaFirebase";
 
 interface ISubsistemaComunicacaoAPILoginExterno {
   consultaExterna(
@@ -6,7 +6,7 @@ interface ISubsistemaComunicacaoAPILoginExterno {
     password: string,
     nome: string,
     tipo: string
-  ): Promise<Conta | void>;
+  ): Promise<ContaFirebase | void>;
 }
 
 export default ISubsistemaComunicacaoAPILoginExterno;

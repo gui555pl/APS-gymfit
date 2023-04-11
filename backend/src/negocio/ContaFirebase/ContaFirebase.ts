@@ -3,20 +3,12 @@ class ContaFirebase {
   private email;
   private localId;
   private nome;
-  private tipo;
 
-  constructor(
-    idToken: string,
-    email: string,
-    localId: string,
-    nome: string,
-    tipo: string
-  ) {
+  constructor(idToken: string, email: string, localId: string, nome: string) {
     this.idToken = idToken;
     this.email = email;
     this.localId = localId;
     this.nome = nome;
-    this.tipo = tipo;
   }
 
   public getContaFirebase(): ContaFirebase {
@@ -37,10 +29,6 @@ class ContaFirebase {
 
   public getNome(): string {
     return this.getContaFirebase().nome;
-  }
-
-  public getTipo(): string {
-    return this.getContaFirebase().tipo;
   }
 }
 

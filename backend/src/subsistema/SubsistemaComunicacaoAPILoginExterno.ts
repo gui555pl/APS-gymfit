@@ -23,8 +23,7 @@ class SubsistemaComunicacaoAPILoginExterno
   async consultaExterna(
     email: string,
     password: string,
-    nome: string,
-    tipo: string
+    nome: string
   ): Promise<ContaFirebase | void> {
     try {
       const baseURL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.FIREBASE_API_KEY}`;
@@ -35,7 +34,7 @@ class SubsistemaComunicacaoAPILoginExterno
       });
       if (response.status === 200) {
         const { idToken, email, localId } = response.data;
-        const conta = new ContaFirebase(idToken, email, localId, nome, tipo);
+        const conta = new ContaFirebase(idToken, email, localId, nome);
         return conta;
       } else {
         throw new Error(

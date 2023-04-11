@@ -1,6 +1,8 @@
 import { inject, injectable } from "tsyringe";
 
 import Conta from "./Conta";
+import ContaAluno from "./ContaAluno";
+import ContaTreinador from "./ContaTreinador";
 import IRepositorioContas from "../../dados/Contas/IRepositorioContas";
 
 @injectable()
@@ -14,13 +16,9 @@ class Contas {
   }
 
   public inserirConta(
-    nome: string,
-    tipo: string,
-    email: string,
-    id: number
-  ): Conta {
-    const conta = this.repositorioContas.inserir(nome, tipo, email, id);
-    return conta;
+    conta: ContaAluno | ContaTreinador
+  ): ContaAluno | ContaTreinador {
+    return this.repositorioContas.inserir(conta);
   }
 
   public validarConta(idConta: number): boolean {

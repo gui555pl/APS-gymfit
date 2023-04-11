@@ -1,8 +1,11 @@
 import { injectable } from "tsyringe";
 
 import Conta from "./Conta";
+import ContaAluno from "./ContaAluno";
 import Contas from "./Contas";
+import ContaTreinador from "./ContaTreinador";
 import SubsistemaComunicacaoAPILoginExterno from "../../subsistema/SubsistemaComunicacaoAPILoginExterno";
+import ContaFirebase from "../ContaFirebase/ContaFirebase";
 
 @injectable()
 class ControladorContas {
@@ -19,20 +22,38 @@ class ControladorContas {
     tipo: string
   ): Promise<Conta | void> {
     const subsistema = new SubsistemaComunicacaoAPILoginExterno();
-    const conta = await subsistema.consultaExterna(email, password, nome, tipo);
-    if (conta) {
-      this.Contas.inserirConta(
-        conta.getNome(),
-        conta.getTipo(),
-        conta.getEmail(),
-        conta.getId()
-      );
+    const contaFirebase = await subsistema.consultaExterna(
+      email,
+      password,
+      nome
+    );
+    if (contaFirebase) {
+      const conta = this.criarContaTipada(contaFirebase, tipo);
+      this.Contas.inserirConta(conta);
       return conta;
     }
   }
 
   public validarConta(idConta: number): boolean {
     return this.Contas.validarConta(idConta);
+  }
+
+  private criarContaTipada(
+    contaFirebase: ContaFirebase,
+    tipo: string
+  ): ContaAluno | ContaTreinador {
+    if (tipo === "aluno") {
+      return new ContaAluno(
+        contaFirebase.getNome(),
+        0,
+        contaFirebase.getEmail()
+      );
+    }
+    return new ContaTreinador(
+      contaFirebase.getNome(),
+      0,
+      contaFirebase.getEmail()
+    );
   }
 }
 

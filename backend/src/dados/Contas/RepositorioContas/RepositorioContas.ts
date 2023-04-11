@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 
 import ContasDefault from "./default";
 import Conta from "../../../negocio/Conta/Conta";
+import ContaAluno from "../../../negocio/Conta/ContaAluno";
+import ContaTreinador from "../../../negocio/Conta/ContaTreinador";
 import IRepositorioContas from "../IRepositorioContas";
 
 @singleton()
@@ -14,8 +16,8 @@ class RepositorioContas implements IRepositorioContas {
     this.contas = ContasDefault;
   }
 
-  inserir(nome: string, tipo: string, email: string, id: number): Conta {
-    const conta = new Conta(nome, tipo, id, email);
+  inserir(conta: ContaAluno | ContaTreinador): Conta {
+    conta.setId(this.contas.length + 1);
     this.contas.push(conta);
     return conta;
   }

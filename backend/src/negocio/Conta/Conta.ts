@@ -1,11 +1,9 @@
 class Conta {
   private nome;
   private id;
-  private tipo;
   private email;
 
-  constructor(nome: string, tipo: string, id: number, email: string) {
-    this.tipo = tipo;
+  constructor(nome: string, id: number, email: string) {
     this.nome = nome;
     this.id = id;
     this.email = email;
@@ -19,10 +17,6 @@ class Conta {
     return this.getConta().id;
   }
 
-  public getTipo(): string {
-    return this.getConta().tipo;
-  }
-
   public getEmail(): string {
     return this.getConta().email;
   }
@@ -33,6 +27,10 @@ class Conta {
 
   public getIdConta(): number {
     return this.getConta().id;
+  }
+
+  public setId(id: number): void {
+    this.id = id;
   }
 }
 

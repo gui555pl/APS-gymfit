@@ -4,8 +4,7 @@ interface ISubsistemaComunicacaoAPILoginExterno {
   consultaExterna(
     email: string,
     password: string,
-    nome: string,
-    tipo: string
+    nome: string
   ): Promise<ContaFirebase | void>;
 }
 

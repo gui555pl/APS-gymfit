@@ -1,0 +1,17 @@
+<template lang="pug">
+  v-container
+    v-row(justify="center")
+      v-col(cols="auto")
+        v-btn(@click="$router.push('/presenca')") Presença
+      v-col(cols="auto")
+        v-btn(@click="$router.push('/treinos')") Treinos
+</template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'HomePage',
+  components: {}
+}
+</script>

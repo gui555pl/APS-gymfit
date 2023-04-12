@@ -1,10 +1,20 @@
-version: "3.7"
+version: "3.4"
 services:
   treinoweb:
     build: ./backend/treino-service
     ports:
-      - "3334:3334"
-  contasweb:
-    build: ./backend/contas-service
-    ports:
       - "3333:3333"
+    networks:
+      - my-network
+    hostname: treinoweb
+  contasweb:
+    build: ./backend/conta-service
+    ports:
+      - "3334:3334"
+    networks:
+      - my-network
+    hostname: contasweb
+
+networks:
+  my-network:
+    driver: bridge

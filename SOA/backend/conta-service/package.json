@@ -4,7 +4,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start": "node src/index.ts",
+    "start": "node dist/index.js",
     "test": "jest",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --no-notify src/index.ts"
   },
@@ -17,7 +17,6 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
-    "firebase-admin": "^11.5.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "nanoid": "^4.0.0",

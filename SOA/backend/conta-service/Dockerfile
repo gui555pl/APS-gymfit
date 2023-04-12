@@ -1,15 +1,17 @@
-from node:12.16.1-alpine3.9
+FROM node:16
 
-WORKDIR /usr/src/app
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
 
-COPY package*.json ./
+WORKDIR /app
 
-RUN npm install
+COPY package.json ./
+COPY yarn.lock ./
+
+RUN yarn
 
 COPY . .
 
 EXPOSE 3334
 
-CMD [ "npm", "build" ]
-
-CMD [ "npm", "start" ]
+CMD ["yarn", "dev"]

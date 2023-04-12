@@ -21,7 +21,7 @@ class TelaCadastrarTreinos {
     const exercicios = req.body.exercicios;
     const idConta = req.body.idConta;
 
-    const response = await axios.post("http://contasweb:3334/conta/validar", {
+    const response = await axios.post("http://localhost:3334/conta/validar", {
       idConta
     });
 

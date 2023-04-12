@@ -29,7 +29,7 @@ class Fachada {
     return await this.controladorContas.criarConta(email, password, nome, tipo);
   }
 
-  public validarConta(idConta: number): boolean{
+  public validarConta(idConta: number): boolean {
     return this.controladorContas.validarConta(idConta);
   }
 }

@@ -45,9 +45,9 @@ v-container
       v-card-text
         v-row(justify="center")
           v-col(cols=6)
-            v-text-field(type="number" v-model="treinoSelected.idConta" label="ID da Conta" filled)
+            v-text-field(type="number" v-model="treinoSelected.idConta" label="ID da Conta" filled :disabled="dialogType === 'edit'")
           v-col(cols=6)
-            v-text-field(v-model="treinoSelected.tipo" label="Tipo" filled)
+            v-text-field(v-model="treinoSelected.tipo" label="Tipo" filled :disabled="dialogType === 'edit'")
           v-col(cols=12)
             v-text-field(
               :key="i",

@@ -6,12 +6,12 @@ v-container
   v-row(justify="center")
     v-col
       .text-subtitle-2 Nome 
-      .text-h6 {{ student.name }}
+      .text-h6 {{ user.name }}
   v-row(justify="end")
     v-col(cols=12)
       v-text-field(:loading="loading" label="Nome", v-model="name" filled)
     v-col(cols='auto')
-      v-btn(@click="changeAluno" :loading="loading" color="primary") Salvar
+      v-btn(@click="changeUser" :loading="loading" color="primary") Salvar
 </template>
 
 <script>
@@ -22,25 +22,25 @@ export default {
   components: {},
   data() {
     return {
-      student: null,
+      user: null,
       name: '',
       loading: false
     };
   },
   methods: {
-    changeAluno() {
+    changeUser() {
       this.loading = true
       // TODO: mudar nome aluno passando o objeto de conta
       setTimeout(() => {
-        const student = { id: 2, name: this.name }
-        this.student = student
+        const user = { id: 2, name: this.name }
+        this.user = user
         this.loading = false
       }, 2000);
     },
   },
   mounted() {
-    this.student = { id: 2, name: "Igor" }
-    this.name = this.student.name
+    this.user = { id: 2, name: "Igor" }
+    this.name = this.user.name
   },
 };
 </script>

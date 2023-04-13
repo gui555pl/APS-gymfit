@@ -24,6 +24,14 @@ class Contas {
   public validarConta(idConta: number): boolean {
     return !!this.repositorioContas.consultar(idConta);
   }
+
+  public editarConta(conta: ContaAluno | ContaTreinador): Conta {
+    return this.repositorioContas.atualizar(conta);
+  }
+
+  public listarConta(idConta: number): Conta | undefined {
+    return this.repositorioContas.consultar(idConta);
+  }
 }
 
 export default Contas;

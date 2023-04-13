@@ -34,6 +34,14 @@ class ControladorContas {
     }
   }
 
+  public listarConta(idConta: number) {
+    return this.Contas.listarConta(idConta);
+  }
+
+  public editarConta(conta: Conta) {
+    return this.Contas.editarConta(conta);
+  }
+
   public validarConta(idConta: number): boolean {
     return this.Contas.validarConta(idConta);
   }

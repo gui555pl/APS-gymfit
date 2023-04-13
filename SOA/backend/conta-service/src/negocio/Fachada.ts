@@ -32,6 +32,14 @@ class Fachada {
   public validarConta(idConta: number): boolean {
     return this.controladorContas.validarConta(idConta);
   }
+
+  public listarConta(idConta: number): Conta | undefined {
+    return this.controladorContas.listarConta(idConta);
+  }
+
+  public editarConta(conta: Conta) {
+    return this.controladorContas.editarConta(conta);
+  }
 }
 
 export default Fachada;

@@ -6,6 +6,8 @@ interface IRepositorioContas {
   inserir(conta: ContaAluno | ContaTreinador): ContaAluno | ContaTreinador;
 
   consultar(id: number): Conta | undefined;
+
+  atualizar(conta: ContaAluno | ContaTreinador): ContaAluno | ContaTreinador;
 }
 
 export default IRepositorioContas;

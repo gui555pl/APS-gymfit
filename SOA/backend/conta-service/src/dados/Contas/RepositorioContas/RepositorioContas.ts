@@ -22,6 +22,14 @@ class RepositorioContas implements IRepositorioContas {
     return conta;
   }
 
+  atualizar(conta: ContaAluno | ContaTreinador): Conta {
+    const contaIndex = this.contas.findIndex(
+      t => t.getIdConta() === conta.getIdConta()
+    );
+    this.contas[contaIndex] = conta;
+    return conta;
+  }
+
   consultar(id: number): Conta | undefined {
     const conta = this.contas.find(t => t.getIdConta() === id);
     return conta;

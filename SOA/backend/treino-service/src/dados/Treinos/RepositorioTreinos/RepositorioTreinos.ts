@@ -33,6 +33,15 @@ class RepositorioTreinos implements IRepositorioTreinos {
     this.treinos[treinoIndex] = treino;
     return treino;
   }
+
+  apagar(treino: Treino): void {
+    const treinoIndex = this.treinos.findIndex(
+      t =>
+        t.getIdConta() === treino.getIdConta() &&
+        t.getTipo() === treino.getTipo()
+    );
+    this.treinos.splice(treinoIndex, 1);
+  }
 }
 
 export default RepositorioTreinos;

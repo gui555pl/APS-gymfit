@@ -22,9 +22,12 @@ class TelaCadastrarTreinos {
 
     const treinoToDelete = await this.fachada.getTreino(idConta, tipo);
 
-    this.fachada.apagarTreino(treinoToDelete);
-
-    res.status(200);
+    if (treinoToDelete) {
+      this.fachada.apagarTreino(treinoToDelete);
+      res.status(200);
+    } else {
+      res.status(500);
+    }
   }
 }
 

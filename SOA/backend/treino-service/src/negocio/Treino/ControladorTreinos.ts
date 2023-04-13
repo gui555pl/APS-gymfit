@@ -26,6 +26,10 @@ class ControladorTreinos {
   public getTreino(idConta: number, tipo: string): Treino | undefined {
     return this.Treinos.getTreino(idConta, tipo);
   }
+
+  public apagarTreino(treino: Treino): void {
+    this.Treinos.apagarTreino(treino);
+  }
 }
 
 export default ControladorTreinos;

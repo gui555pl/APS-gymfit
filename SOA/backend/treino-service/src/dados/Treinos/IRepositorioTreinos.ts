@@ -6,6 +6,8 @@ interface IRepositorioTreinos {
   consultar(id: number): Treino[] | undefined;
 
   atualizar(treino: Treino): Treino;
+
+  apagar(treino: Treino): void;
 }
 
 export default IRepositorioTreinos;

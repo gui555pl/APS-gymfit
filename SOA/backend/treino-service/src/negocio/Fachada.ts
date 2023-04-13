@@ -35,6 +35,10 @@ class Fachada {
   public editarTreino(treino: Treino): Treino {
     return this.controladorTreinos.editarTreino(treino);
   }
+
+  public apagarTreino(treino: Treino): void {
+    this.controladorTreinos.apagarTreino(treino);
+  }
 }
 
 export default Fachada;

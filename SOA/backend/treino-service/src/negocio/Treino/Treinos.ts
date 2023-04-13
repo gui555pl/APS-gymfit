@@ -34,6 +34,10 @@ class Treinos {
     }
     return undefined;
   }
+
+  public apagarTreino(treino: Treino): void {
+    this.repositorioTreinos.apagar(treino);
+  }
 }
 
 export default Treinos;

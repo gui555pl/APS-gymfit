@@ -22,6 +22,10 @@ class ControladorTreinos {
   public editarTreino(treino: Treino): Treino {
     return this.Treinos.editarTreino(treino);
   }
+
+  public getTreino(idConta: number, tipo: string): Treino | undefined {
+    return this.Treinos.getTreino(idConta, tipo);
+  }
 }
 
 export default ControladorTreinos;

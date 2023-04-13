@@ -24,6 +24,16 @@ class Treinos {
   public editarTreino(treino: Treino): Treino {
     return this.repositorioTreinos.atualizar(treino);
   }
+
+  public getTreino(idConta: number, tipo: string): Treino | undefined {
+    const treino = this.repositorioTreinos.consultar(idConta);
+    if (treino) {
+      return treino.find(
+        t => t.getTipo() === tipo && t.getIdConta() === idConta
+      );
+    }
+    return undefined;
+  }
 }
 
 export default Treinos;

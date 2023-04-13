@@ -28,6 +28,10 @@ class Fachada {
     return this.controladorTreinos.consultarTreino(idConta);
   }
 
+  public getTreino(idConta: number, tipo: string): Treino | undefined {
+    return this.controladorTreinos.getTreino(idConta, tipo);
+  }
+
   public editarTreino(treino: Treino): Treino {
     return this.controladorTreinos.editarTreino(treino);
   }

@@ -20,6 +20,10 @@ class Treinos {
   public consultarTreino(idConta: number): Treino[] | undefined {
     return this.repositorioTreinos.consultar(idConta);
   }
+
+  public editarTreino(treino: Treino): Treino {
+    return this.repositorioTreinos.atualizar(treino);
+  }
 }
 
 export default Treinos;

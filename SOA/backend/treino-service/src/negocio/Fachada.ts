@@ -27,6 +27,10 @@ class Fachada {
   public consultarTreino(idConta: number): Treino[] | undefined {
     return this.controladorTreinos.consultarTreino(idConta);
   }
+
+  public editarTreino(treino: Treino): Treino {
+    return this.controladorTreinos.editarTreino(treino);
+  }
 }
 
 export default Fachada;

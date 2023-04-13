@@ -23,6 +23,16 @@ class RepositorioTreinos implements IRepositorioTreinos {
     const treino = this.treinos.filter(t => t.getIdConta() === id);
     return treino;
   }
+
+  atualizar(treino: Treino): Treino {
+    const treinoIndex = this.treinos.findIndex(
+      t =>
+        t.getIdConta() === treino.getIdConta() &&
+        t.getTipo() === treino.getTipo()
+    );
+    this.treinos[treinoIndex] = treino;
+    return treino;
+  }
 }
 
 export default RepositorioTreinos;

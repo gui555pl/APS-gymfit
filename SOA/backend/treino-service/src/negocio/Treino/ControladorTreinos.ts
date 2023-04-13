@@ -18,6 +18,10 @@ class ControladorTreinos {
   public consultarTreino(idConta: number): Treino[] | undefined {
     return this.Treinos.consultarTreino(idConta);
   }
+
+  public editarTreino(treino: Treino): Treino {
+    return this.Treinos.editarTreino(treino);
+  }
 }
 
 export default ControladorTreinos;

@@ -20,13 +20,13 @@ class TelaCadastrarTreinos {
     const tipo = req.body.tipo;
     const idConta = req.body.idConta;
 
-    const treinoToDelete = await this.fachada.getTreino(idConta, tipo);
+    const treinoToDelete = this.fachada.getTreino(idConta, tipo);
 
     if (treinoToDelete) {
       this.fachada.apagarTreino(treinoToDelete);
-      res.status(200);
+      res.status(200).send();
     } else {
-      res.status(500);
+      res.status(500).send();
     }
   }
 }

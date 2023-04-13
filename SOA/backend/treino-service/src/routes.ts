@@ -23,7 +23,7 @@ routes.post("/treino", (req, res) =>
 
 routes.put("/treino", (req, res) => telaEditarTreinos.editarTreino(req, res));
 
-routes.delete("/treino", (req, res) =>
+routes.post("/treino/delete", (req, res) =>
   telaDeletarTreino.apagarTreino(req, res)
 );
 

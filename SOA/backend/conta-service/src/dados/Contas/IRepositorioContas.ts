@@ -9,7 +9,7 @@ interface IRepositorioContas {
 
   atualizar(conta: ContaAluno | ContaTreinador): ContaAluno | ContaTreinador;
 
-  listarAlunos(): ContaAluno[];
+  listarContasAlunos(): ContaAluno[];
 }
 
 export default IRepositorioContas;

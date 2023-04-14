@@ -141,7 +141,7 @@ export default {
       })
       const treinos = response.data
       this.treinos = treinos
-      this.loading = true;
+      this.loading = false;
 
       // setTimeout(() => {
       //   this.treinos = [

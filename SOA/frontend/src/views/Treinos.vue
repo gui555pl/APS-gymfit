@@ -136,7 +136,7 @@ export default {
     async consultarTreino() {
       this.loading = true;
       // TODO: listar treinos usando filtro "this.student" que é o id do aluno
-      const response = await axios.get('http://localhost:3333/treinos', {
+      const response = await axios.get('http://localhost:3333/treino', {
         'idConta': this.student
       })
       const treinos = response.data

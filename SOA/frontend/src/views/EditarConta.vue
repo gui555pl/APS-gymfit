@@ -16,26 +16,35 @@ v-container
 
 <script>
 // @ is an alias to /src
+import axios from "axios";
+axios.create({
+  baseURL: ``,
+})
 
 export default {
   name: "TreinosPage",
   components: {},
   data() {
     return {
+      axios: {},
       user: null,
       name: '',
       loading: false
     };
   },
   methods: {
-    changeUser() {
+    async changeUser() {
       this.loading = true
       // TODO: mudar nome aluno passando o objeto de conta
-      setTimeout(() => {
-        const user = { id: 2, name: this.name }
-        this.user = user
-        this.loading = false
-      }, 2000);
+      const user = { idConta: 2, nome: this.name }
+      const response = await axios.put('http://localhost:3334/conta/editar', user)
+
+      this.user = {
+        id: response.data.idConta,
+        name: response.data.nome
+      }
+      this.loading = false
+
     },
   },
   mounted() {

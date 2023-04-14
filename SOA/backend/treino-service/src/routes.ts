@@ -13,7 +13,7 @@ const telaDeletarTreino = container.resolve(TelaDeletarTreino);
 
 const routes = Router();
 
-routes.get("/treino", (req, res) =>
+routes.post("/treino/get", (req, res) =>
   telaListarTreinos.consultarTreino(req, res)
 );
 

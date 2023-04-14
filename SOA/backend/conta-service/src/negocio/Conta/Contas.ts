@@ -21,6 +21,10 @@ class Contas {
     return this.repositorioContas.inserir(conta);
   }
 
+  public listarContasAlunos(): ContaAluno[] {
+    return this.repositorioContas.listarContasAlunos();
+  }
+
   public validarConta(idConta: number): boolean {
     return !!this.repositorioContas.consultar(idConta);
   }

@@ -40,6 +40,10 @@ class Fachada {
   public editarConta(conta: Conta) {
     return this.controladorContas.editarConta(conta);
   }
+
+  listarContasAlunos(): Conta[] {
+    return this.controladorContas.listarContasAlunos();
+  }
 }
 
 export default Fachada;

@@ -34,6 +34,10 @@ class ControladorContas {
     }
   }
 
+  public listarContasAlunos(): Conta[] {
+    return this.Contas.listarContasAlunos();
+  }
+
   public listarConta(idConta: number) {
     return this.Contas.listarConta(idConta);
   }

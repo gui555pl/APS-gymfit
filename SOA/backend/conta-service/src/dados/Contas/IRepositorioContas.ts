@@ -8,6 +8,8 @@ interface IRepositorioContas {
   consultar(id: number): Conta | undefined;
 
   atualizar(conta: ContaAluno | ContaTreinador): ContaAluno | ContaTreinador;
+
+  listarAlunos(): ContaAluno[];
 }
 
 export default IRepositorioContas;

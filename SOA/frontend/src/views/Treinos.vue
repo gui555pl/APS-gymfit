@@ -9,7 +9,7 @@ v-container
         v-model="student",
         :items="students",
         label="Selecionar aluno",
-        item-text="name",
+        item-text="nome",
         item-value="id"
       )
     v-col(cols="auto")
@@ -213,14 +213,11 @@ export default {
       this.closeDialog()
     },
   },
-  mounted() {
+  async mounted() {
     // TODO: listar alunos chamando a API
-    this.students = [
-      { id: 1, name: "Guilherme" },
-      { id: 2, name: "Igor" },
-      { id: 3, name: "Vinícius" },
-      { id: 4, name: "Rogério" },
-    ];
+    const response = await axios.get('http://localhost:3334/conta/listar')
+    console.log(response.data);
+    this.students = response.data;
   },
 };
 </script>

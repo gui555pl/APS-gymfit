@@ -65,6 +65,11 @@ v-container
 
 <script>
 // @ is an alias to /src
+import axios from 'axios'
+
+axios.create({
+  baseURL: ``,
+})
 
 export default {
   name: "TreinosPage",
@@ -128,58 +133,80 @@ export default {
       };
       this.dialog = false;
     },
-    consultarTreino() {
+    async consultarTreino() {
       this.loading = true;
       // TODO: listar treinos usando filtro "this.student" que é o id do aluno
-      setTimeout(() => {
-        this.treinos = [
-          {
-            idConta: 1,
-            tipo: "A",
-            exercicios: ["Supino: 4x10", "Fly: 3x12", "Tríceps polia: 4x12"],
-          },
-          {
-            idConta: 1,
-            tipo: "B",
-            exercicios: ["Puxada: 4x10", "Remada: 4x10", "Rosca direta: 4x12"],
-          },
-          {
-            idConta: 1,
-            tipo: "C",
-            exercicios: [
-              "Agachamento: 5x8",
-              "Flexão de Perna: 4x12",
-              "Panturrilha sentado: 5x12",
-            ],
-          },
-        ];
-        this.loading = false;
-      }, 1000);
+      const response = await axios.get('http://localhost:3333/treinos', {
+        'idConta': this.student
+      })
+      const treinos = response.data
+      this.treinos = treinos
+      // setTimeout(() => {
+      //   this.treinos = [
+      //     {
+      //       idConta: 1,
+      //       tipo: "A",
+      //       exercicios: ["Supino: 4x10", "Fly: 3x12", "Tríceps polia: 4x12"],
+      //     },
+      //     {
+      //       idConta: 1,
+      //       tipo: "B",
+      //       exercicios: ["Puxada: 4x10", "Remada: 4x10", "Rosca direta: 4x12"],
+      //     },
+      //     {
+      //       idConta: 1,
+      //       tipo: "C",
+      //       exercicios: [
+      //         "Agachamento: 5x8",
+      //         "Flexão de Perna: 4x12",
+      //         "Panturrilha sentado: 5x12",
+      //       ],
+      //     },
+      //   ];
+      //   this.loading = false;
+      // }, 1000);
     },
-    apagarTreino(treino) {
+    async apagarTreino(treino) {
       // TODO: apagar treino da lista de treinos via API usando o "treino" recebido como param
-      this.treinos.forEach((t, i) => {
-        if (t.idConta === treino.idConta && t.tipo === treino.tipo) {
-          this.treinos.splice(i, 1);
-        }
-      });
+      const response = await axios.post('http://localhost:3333/treino/delete', {
+        'idConta': treino.idConta,
+        'tipo': treino.tipo
+      })
+      console.log(response.status)
+      // this.treinos.forEach((t, i) => {
+      //   if (t.idConta === treino.idConta && t.tipo === treino.tipo) {
+      //     this.treinos.splice(i, 1);
+      //   }
+      // });
     },
-    editarTreino() {
+    async editarTreino() {
       // TODO: editar treino da lista de treinos via API usando o this.treinoSelected
-      this.treinos.forEach((t, i) => {
-        if (
-          t.idConta === this.treinoSelected.idConta &&
-          t.tipo === this.treinoSelected.tipo
-        ) {
-          this.treinos[i] = JSON.parse(JSON.stringify(this.treinoSelected));
-        }
-      });
+      const response = await axios.post('http://localhost:3333/treino/edit', {
+        'idConta': this.treinoSelected.idConta,
+        'tipo': this.treinoSelected.tipo,
+        'exercicios': this.treinoSelected.exercicios
+      })
+      console.log(response.status)
+  
+      // this.treinos.forEach((t, i) => {
+      //   if (
+      //     t.idConta === this.treinoSelected.idConta &&
+      //     t.tipo === this.treinoSelected.tipo
+      //   ) {
+      //     this.treinos[i] = JSON.parse(JSON.stringify(this.treinoSelected));
+      //   }
+      // });
 
       this.closeDialog()
     },
-    criarTreino() {
+    async criarTreino() {
       // TODO: add treino na lista de treinos via API usando this.treinoSelected
-      this.treinos.push(this.treinoSelected);
+      const response = await axios.post('http://localhost:3333/treino/create', {
+        'idConta': this.treinoSelected.idConta,
+        'tipo': this.treinoSelected.tipo,
+        'exercicios': this.treinoSelected.exercicios
+      })
+      console.log(response.status)
 
       this.closeDialog()
     },

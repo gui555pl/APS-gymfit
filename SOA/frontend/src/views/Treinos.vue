@@ -183,7 +183,7 @@ export default {
     },
     async editarTreino() {
       // TODO: editar treino da lista de treinos via API usando o this.treinoSelected
-      const response = await axios.post('http://localhost:3333/treino/edit', {
+      const response = await axios.put('http://localhost:3333/treino/edit', {
         'idConta': this.treinoSelected.idConta,
         'tipo': this.treinoSelected.tipo,
         'exercicios': this.treinoSelected.exercicios

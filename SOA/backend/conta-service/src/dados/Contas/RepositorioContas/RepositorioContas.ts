@@ -34,6 +34,10 @@ class RepositorioContas implements IRepositorioContas {
     const conta = this.contas.find(t => t.getIdConta() === id);
     return conta;
   }
+
+  listarContasAlunos(): ContaAluno[] {
+    return this.contas.filter(t => t instanceof ContaAluno) as ContaAluno[];
+  }
 }
 
 export default RepositorioContas;
